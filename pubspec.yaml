@@ -1,5 +1,5 @@
-name: py_code_decoder
-description: PY_Code - Professional AES Decoder for encrypted configs
+name: decoder_app
+description: Py_Coder - Professional AES Decoder
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -16,6 +16,7 @@ dependencies:
   flutter_animate: ^4.5.0
   file_picker: ^8.0.0
   share_plus: ^9.0.0
+  url_launcher: ^6.2.6   # ✅ من ضمن dependencies
 
 dev_dependencies:
   flutter_test:
@@ -27,5 +28,3 @@ flutter:
   assets:
     - assets/images/
 
-  # إضافة url_launcher للتواصل
-  url_launcher: ^6.2.6
