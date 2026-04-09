@@ -1,0 +1,28 @@
+name: decoder_app
+description: A professional decoder app for encrypted configs
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pointycastle: ^3.9.1
+  convert: ^3.1.1
+  provider: ^6.1.1
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.0
+  file_picker: ^8.0.0
+  share_plus: ^9.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
