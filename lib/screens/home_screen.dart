@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppTheme.darkBg,
       appBar: AppBar(
-        title: const Text('DECODER v1.0'),
+        title: const Text('PY_Code v1.0'),
         backgroundColor: Colors.black.withOpacity(0.9),
         centerTitle: true,
         actions: [
@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 border: Border.all(color: AppTheme.primaryGreen),
                 borderRadius: BorderRadius.circular(4),
               ),
-              child: const Text('Alaa & PY_Code'),
+              child: const Text('PY_Code™'),
             ),
           ),
         ],

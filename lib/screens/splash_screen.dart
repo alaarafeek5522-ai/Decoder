@@ -49,9 +49,9 @@ class _SplashScreenState extends State<SplashScreen> {
             ).animate().scale(duration: 500.ms).then().fade(),
             const SizedBox(height: 30),
             Text(
-              'DECODER',
+              'PY_Code',
               style: GoogleFonts.shareTechMono(
-                fontSize: 32,
+                fontSize: 36,
                 color: AppTheme.primaryGreen,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 4,
@@ -59,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ).animate().fadeIn(duration: 800.ms).then().shimmer(),
             const SizedBox(height: 10),
             Text(
-              'by Alaa & PY_Code',
+              'Decoder • by Alaa & PY_Code',
               style: GoogleFonts.shareTechMono(
                 fontSize: 14,
                 color: Colors.grey,
