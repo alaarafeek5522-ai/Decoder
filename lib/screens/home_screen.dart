@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../services/aes_decoder.dart';
 import '../theme/app_theme.dart';
 
@@ -16,16 +18,20 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _inputController = TextEditingController();
   String _result = '';
   bool _isLoading = false;
-  String _selectedMode = 'file'; // 'file' or 'text'
+  String _selectedMode = 'file';
 
-  Future<void _decodeFile() async {
+  Future<void> _decodeFile() async {
     try {
       FilePickerResult? result = await FilePicker.platform.pickFiles();
       if (result == null) return;
 
       setState(() => _isLoading = true);
       
-      String content = await result.files.first.readAsString();
+      // ✅ الطريقة الصحيحة لقراءة الملف
+      String filePath = result.files.first.path!;
+      File file = File(filePath);
+      String content = await file.readAsString();
+      
       String decoded = AESDecoder.decode(content.trim());
       
       setState(() {
@@ -116,7 +122,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Stack(
         children: [
-          // خلفية متحركة
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -135,7 +140,6 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // اختيار الوضع
                 Container(
                   padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
@@ -191,7 +195,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 
                 const SizedBox(height: 20),
                 
-                // محتوى حسب الوضع
                 if (_selectedMode == 'file')
                   ElevatedButton.icon(
                     onPressed: _isLoading ? null : _decodeFile,
@@ -226,7 +229,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 
                 const SizedBox(height: 30),
                 
-                // عرض النتيجة
                 if (_result.isNotEmpty)
                   Card(
                     child: Padding(
@@ -283,7 +285,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 
                 const SizedBox(height: 20),
                 
-                // حقوق التطبيق
                 Center(
                   child: Text(
                     'Developed by Alaa & PY_Code',
@@ -297,7 +298,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           
-          // مؤشر التحميل
           if (_isLoading)
             Container(
               color: Colors.black.withOpacity(0.8),

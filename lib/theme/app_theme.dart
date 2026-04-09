@@ -53,7 +53,7 @@ class AppTheme {
           ),
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(  // ✅ تغيير من CardTheme إلى CardThemeData
         color: cardBg,
         elevation: 4,
         shape: RoundedRectangleBorder(
