@@ -26,3 +26,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+
+  # إضافة url_launcher للتواصل
+  url_launcher: ^6.2.6
